@@ -26,7 +26,7 @@ public class Scheduler implements Observer{
        this.maxProcess=n;
     }
     
-    public Process createProcess(){
+    public Process createProcess(){   // change "Process" constructer name, constructor already in process class
         Process p=new Process();
         p.addObserver(this);
         return p;
@@ -48,3 +48,4 @@ public class Scheduler implements Observer{
     }
     
 }
+
