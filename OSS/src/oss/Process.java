@@ -32,18 +32,20 @@ public class Process extends Observable{
 	    		fullElapsedTime+=elapsedTime;
 	    		
 	    		if(serviceTime<=elapsedTime){
-	    			
+	    			MessegeAttributes finish=new MessegeAttributes(processId,1);
 	    			setChanged();
-	    			notifyObservers();			
+	    			notifyObservers(finish);			
 	    			break;						// end the whole process
 	    		}else if(isInterrupted()){
+	    			MessegeAttributes blocked=new MessegeAttributes(processId,3);
 	    			setChanged();
-	    			notifyObservers();         // I/O interrupt occurs
+	    			notifyObservers(blocked);         // I/O interrupt occurs
 	    			
 	    		}
 	    		else if(timeQuantum<=elapsedTime){
+	    			MessegeAttributes remain=new MessegeAttributes(processId,2);
 	    			setChanged();
-	    			notifyObservers();	
+	    			notifyObservers(remain);	
 	    			serviceTime-=timeQuantum;
 	    			break;						//suspend process after timeout
 	    		}
@@ -79,31 +81,4 @@ public class Process extends Observable{
 
 		
 		
-}
-
-
-
- class MessegeAttributes {
-    private int processId;
-    private int status;
-
-    public MessegeAttributes(int processId,int status){
-    	
-    }
-    public int getProcessId() {
-        return processId;
-    }
-
-    public void setProcessId(int processId) {
-        this.processId = processId;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
 }
