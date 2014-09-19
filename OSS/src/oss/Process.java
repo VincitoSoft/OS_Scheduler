@@ -1,56 +1,109 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package oss;
-import java.util.*;
+
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  *
- * @author Thilina Piyadasun
+ * @author Dilan Nuwantha
  */
 public class Process extends Observable{
-    
-    private int processId;
-    private long processAvailableTime;
-    private long startTime=0;
-    private long currntTime=0;
-    private static final long timeQunta=5000;
+		private boolean interrupted=false;
+		private int  processId;
+	    private long serviceTime;
+	    private long startTime;
+	    private long elapsedTime;
+	    private long fullServiceTime; // service time used for GUI
+	    private long fullElapsedTime=0;// elapsed time used for GUI
+	    private long timeQuantum=5000;  // set time quantum 
+	    
+	    public Process(int processId,long serviceTime){
+	    	this.processId=processId;
+	    	this.serviceTime=serviceTime;
+	    	this.fullServiceTime=serviceTime;
+	    }
 
-    public Process(int processId,long serviceTime) {
-        this.processId = processId;
-        this.processAvailableTime=serviceTime;
-    }
-    
-    public void run(){
-        
-        startTime=System.currentTimeMillis();
-        
-        while(true){
-            currntTime=System.currentTimeMillis();
-            
-            if(processAvailableTime<=currntTime-startTime){
-                
-                MessegeAttributes masAtr=new MessegeAttributes();//Creating messege pass object to send process info
-                masAtr.setProcessId(processId);
-                masAtr.setStatus(true);
-                setChanged();//Mark that process has Finished
-                notifyObservers(masAtr);
-                break;
-            }
-            else if(timeQunta<=currntTime-startTime){
-                notifyObservers();
-                processAvailableTime=processAvailableTime-timeQunta;
-                MessegeAttributes masAtr=new MessegeAttributes();//Creating messege pass object to send process info
-                masAtr.setProcessId(processId);
-                masAtr.setStatus(false);
-               
-                setChanged();//Mark that process has Finished
-                notifyObservers(masAtr);
-                break;                                
-            }
-        }
-    }
-            
+	    public void runTime() {
+	    	   startTime=System.currentTimeMillis();
+	    	   setInterrupted(false);           // I/O operation finished after come to ready queue
+	    	   
+	    	while(true){
+	    		elapsedTime=System.currentTimeMillis()-startTime;
+	    		fullElapsedTime+=elapsedTime;
+	    		
+	    		if(serviceTime<=elapsedTime){
+	    			
+	    			setChanged();
+	    			notifyObservers();			
+	    			break;						// end the whole process
+	    		}else if(isInterrupted()){
+	    			setChanged();
+	    			notifyObservers();         // I/O interrupt occurs
+	    			
+	    		}
+	    		else if(timeQuantum<=elapsedTime){
+	    			setChanged();
+	    			notifyObservers();	
+	    			serviceTime-=timeQuantum;
+	    			break;						//suspend process after timeout
+	    		}
+	    		
+	    		
+	    	}
+
+	    }
+
+		public int getProcessId() {
+			return processId;
+		}
+
+		private boolean isInterrupted() {
+			return interrupted;
+		}
+
+		private void setInterrupted(boolean interrupted) {
+			this.interrupted = interrupted;
+		}
+
+		private void setTimeQuantum(long timeQuantum) {
+			this.timeQuantum = timeQuantum;
+		}
+
+		private long getFullServiceTime() {
+			return fullServiceTime;
+		}
+
+		private long getFullElapsedTime() {
+			return fullElapsedTime;
+		}
+
+		
+		
 }
 
+
+
+ class MessegeAttributes {
+    private int processId;
+    private int status;
+
+    public MessegeAttributes(int processId,int status){
+    	
+    }
+    public int getProcessId() {
+        return processId;
+    }
+
+    public void setProcessId(int processId) {
+        this.processId = processId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+}
