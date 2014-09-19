@@ -25,7 +25,7 @@ public class Process extends Observable{
 
 	    public void runTime() {
 	    	   startTime=System.currentTimeMillis();
-	    	   setInterrupted(false);           // I/O operation finished after come to ready queue
+	    	   interrupted=false;           // I/O operation finished after come to ready queue
 	    	   
 	    	while(true){
 	    		elapsedTime=System.currentTimeMillis()-startTime;
@@ -63,8 +63,8 @@ public class Process extends Observable{
 			return interrupted;
 		}
 
-		private void setInterrupted(boolean interrupted) {
-			this.interrupted = interrupted;
+		private void setInterrupted() {
+			this.interrupted = true;
 		}
 
 		private void setTimeQuantum(long timeQuantum) {
