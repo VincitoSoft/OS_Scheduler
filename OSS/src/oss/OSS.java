@@ -6,6 +6,8 @@
 
 package oss;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Tharindu Kalubowila
@@ -16,7 +18,15 @@ public class OSS {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       Scheduler sh=new Scheduler(5);
+       sh.createProcess();
     }
     
+}
+class ProcessInitializer{
+    public void processCreator(){
+        Scanner sc=new Scanner(System.in);
+        int i;
+        System.out.println("Enter num processes");
+    }
 }

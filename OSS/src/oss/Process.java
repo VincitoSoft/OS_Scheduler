@@ -24,19 +24,30 @@ public class Process extends Observable{
     
     public void run(){
         
-        currntTime=System.currentTimeMillis();
+        startTime=System.currentTimeMillis();
         
         while(true){
             currntTime=System.currentTimeMillis();
             
             if(processAvailableTime<=currntTime-startTime){
-                notifyObservers();                      //end of the process
+                
+                MessegeAttributes masAtr=new MessegeAttributes();//Creating messege pass object to send process info
+                masAtr.setProcessId(processId);
+                masAtr.setStatus(true);
+                setChanged();//Mark that process has Finished
+                notifyObservers(masAtr);
                 break;
             }
             else if(timeQunta<=currntTime-startTime){
                 notifyObservers();
                 processAvailableTime=processAvailableTime-timeQunta;
-                break;                                 //process go to suspended state
+                MessegeAttributes masAtr=new MessegeAttributes();//Creating messege pass object to send process info
+                masAtr.setProcessId(processId);
+                masAtr.setStatus(false);
+               
+                setChanged();//Mark that process has Finished
+                notifyObservers(masAtr);
+                break;                                
             }
         }
     }
