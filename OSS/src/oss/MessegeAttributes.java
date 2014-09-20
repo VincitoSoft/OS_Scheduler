@@ -11,22 +11,19 @@ package oss;
  */
 public class MessegeAttributes {
     private int processId;
-    private boolean status;
+    private int status;
 
+    public MessegeAttributes(int processId,int status){
+    	this.processId=processId;
+    	this.status=status;
+    }
     public int getProcessId() {
         return processId;
     }
 
-    public void setProcessId(int processId) {
-        this.processId = processId;
-    }
-
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 
 }
