@@ -19,14 +19,8 @@ public class OSS {
      */
     public static void main(String[] args) {
        Scheduler sh=new Scheduler(5);
-       sh.createProcess();
+       sh.startTask();
     }
     
 }
-class ProcessInitializer{
-    public void processCreator(){
-        Scanner sc=new Scanner(System.in);
-        int i;
-        System.out.println("Enter num processes");
-    }
-}
+

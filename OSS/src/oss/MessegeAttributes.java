@@ -10,8 +10,8 @@ package oss;
  * @author Malaka
  */
 public class MessegeAttributes {
-    private int processId;
-    private int status;
+    private final int processId;
+    private final int status;
 
     public MessegeAttributes(int processId,int status){
     	this.processId=processId;
