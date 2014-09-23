@@ -42,7 +42,9 @@ public class Scheduler implements Observer {
             Process p = createProcess(serviceTime[i], timeQuanta, blockProcesses[i]);//call to create process with service time
             addtoReadyqueue(p, i);//Then add to ready Queue
         }
-
+       
+        
+        gui.firstQue(this);
         startTask();
 
     }

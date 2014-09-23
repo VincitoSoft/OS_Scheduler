@@ -8,6 +8,7 @@ package oss;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Panel;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
@@ -29,7 +30,7 @@ public class GUI1 extends javax.swing.JFrame {
      * Creates new form GUI1
      */
     public GUI1() {
-       
+        
         initComponents();
     }
     Scheduler sch;
@@ -184,14 +185,14 @@ public class GUI1 extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jList3);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel9.setText("Block");
+        jLabel9.setText("Block/Suspend");
 
         jScrollPane4.setViewportView(jList4);
 
         jScrollPane5.setViewportView(jList5);
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel10.setText("Block/Suspend");
+        jLabel10.setText("Block");
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Ready/Suspend");
@@ -212,14 +213,16 @@ public class GUI1 extends javax.swing.JFrame {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(29, 29, 29)))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addContainerGap())
+                .addGap(16, 16, 16))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane1, jScrollPane3, jScrollPane4, jScrollPane5});
@@ -230,17 +233,17 @@ public class GUI1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3))
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane4))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane5)
-                            .addComponent(jScrollPane4)))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -378,7 +381,7 @@ public class GUI1 extends javax.swing.JFrame {
         jProgressBar13.setStringPainted(true);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel7.setText("Main Memory");
+        jLabel7.setText("Ready Queue");
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oss/vn3.png"))); // NOI18N
 
@@ -387,23 +390,23 @@ public class GUI1 extends javax.swing.JFrame {
         jLabel14.setEnabled(false);
 
         jLabel16.setFont(new java.awt.Font("Viner Hand ITC", 0, 14)); // NOI18N
-        jLabel16.setText("Dilan         0717082908");
+        jLabel16.setText("Dilan         120170M");
         jLabel16.setEnabled(false);
 
         jLabel17.setFont(new java.awt.Font("Viner Hand ITC", 0, 14)); // NOI18N
-        jLabel17.setText("Thilina     0713124040");
+        jLabel17.setText("Thilina     120378N");
         jLabel17.setEnabled(false);
 
         jLabel18.setFont(new java.awt.Font("Viner Hand ITC", 0, 14)); // NOI18N
-        jLabel18.setText("Minudika   0715507113");
+        jLabel18.setText("Minudika   120165D");
         jLabel18.setEnabled(false);
 
         jLabel19.setFont(new java.awt.Font("Viner Hand ITC", 0, 14)); // NOI18N
-        jLabel19.setText("Malaka    0713564340");
+        jLabel19.setText("Malaka    120168N");
         jLabel19.setEnabled(false);
 
         jLabel20.setFont(new java.awt.Font("Viner Hand ITC", 0, 14)); // NOI18N
-        jLabel20.setText("Tharindu 0714242911");
+        jLabel20.setText("Tharindu 120284P");
         jLabel20.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -469,7 +472,7 @@ public class GUI1 extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(PLable4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(PLable1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -499,8 +502,7 @@ public class GUI1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jProgressBar11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PLable11, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(PLable11, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -511,7 +513,7 @@ public class GUI1 extends javax.swing.JFrame {
                                         .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(jLabel2)
@@ -536,7 +538,7 @@ public class GUI1 extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jProgressBar13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                .addGap(8, 8, 8))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jProgressBar1, jProgressBar10, jProgressBar11, jProgressBar12, jProgressBar2, jProgressBar3, jProgressBar4, jProgressBar5, jProgressBar6, jProgressBar7, jProgressBar8, jProgressBar9});
@@ -673,14 +675,15 @@ public class GUI1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 718, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
         );
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-891)/2, (screenSize.height-756)/2, 891, 756);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -908,17 +911,7 @@ public class GUI1 extends javax.swing.JFrame {
         }
     }
 
-    /*void setPbar(int id,long Precent) {
-     Pbar[id].setValue((int) Precent);
-     //update(getGraphics());
-     }*/
-
-    /*void setLable(int id, String state){
-     //System.out.println(id+" "+state);
-     PLable[id].setText(state);
-     update(getGraphics());
-     
-     }*/
+    
     void setReady(Vector<Process> readyQue) {
         jList1.setListData(readyQue);
     }
@@ -938,21 +931,56 @@ public class GUI1 extends javax.swing.JFrame {
     void updateGui(Process intPro, Scheduler sc, Vector readyQ) {
         double d = intPro.getFullElapsedtime() * 100 / intPro.getServiceTime();
         elapsedTime = (int) d;
-        pr = intPro;
-        Pbar[intPro.getProcessId()].setStringPainted(true);
-        //Pbar[intPro.getProcessId()].setValue(0);
-       
-        Pbar[pr.getProcessId()].setValue(elapsedTime);
-        jProgressBar13.setValue((readyQ.size()*100)/5);
         
-        pauseTime[intPro.getProcessId()] = elapsedTime;
-        PLable[intPro.getProcessId()].setText(intPro.getState());
-       // this.update(getGraphics());
+       
+        
+        
+        
+        Pbar[intPro.getProcessId()].setStringPainted(true);
+        
+       for(int i=Pbar[intPro.getProcessId()].getValue();i<=elapsedTime;i++){
+            Pbar[intPro.getProcessId()].setValue(i);
+            Pbar[intPro.getProcessId()].update(Pbar[intPro.getProcessId()].getGraphics());
+            for(int j=0;j<1000;j++){
+                System.out.println(" ");
+            }
+            
+        }
+        
+        jProgressBar13.setValue((readyQ.size()*100)/5);
+        jProgressBar13.update(jProgressBar13.getGraphics());
+        
+       
+         
+        PLable[intPro.getProcessId()].update(PLable[intPro.getProcessId()].getGraphics());
+        PLable[intPro.getProcessId()].setText(" "+intPro.getState());
+        PLable[intPro.getProcessId()].update(PLable[intPro.getProcessId()].getGraphics());
 
+        jList1.update(jList1.getGraphics());
+        jList3.update(jList3.getGraphics());
+        jList4.update(jList4.getGraphics());
+        jList5.update(jList5.getGraphics());
         sc.showQueues();
-        this.update(getGraphics());
+        jList1.update(jList1.getGraphics());
+        jList3.update(jList3.getGraphics());
+        jList4.update(jList4.getGraphics());
+        jList5.update(jList5.getGraphics());
+        
         sc.startTask();
 
+    }
+
+    public void firstQue(Scheduler sc) {
+        jList1.update(jList1.getGraphics());
+        jList3.update(jList3.getGraphics());
+        jList4.update(jList4.getGraphics());
+        jList5.update(jList5.getGraphics());
+        sc.showQueues();
+        jList1.update(jList1.getGraphics());
+        jList3.update(jList3.getGraphics());
+        jList4.update(jList4.getGraphics());
+        jList5.update(jList5.getGraphics());
+        
     }
 
 }
